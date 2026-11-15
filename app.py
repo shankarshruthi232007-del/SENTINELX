@@ -106,7 +106,7 @@ def _sb(method, table, query='', payload=None, prefer=None):
         return None
     url = f"{SUPABASE_URL}/rest/v1/{table}" + (f"?{query}" if query else '')
     body = None if payload is None else json.dumps(payload).encode()
-    headers = {'apikey': SUPABASE_KEY, 'Authorization': f'Bearer {SUPABASE_KEY}', 'Content-Type': 'application/json'}
+    headers = {'apikey': SUPABASE_KEY, 'Content-Type': 'application/json'}
     if prefer:
         headers['Prefer'] = prefer
     req = urllib.request.Request(url, data=body, headers=headers, method=method)
