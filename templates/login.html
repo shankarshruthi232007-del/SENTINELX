@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SENTINELX · Secure Access</title><link rel="stylesheet" href="/style.css"></head>
+<body class="login-page">
+<div class="login-backdrop"></div><main class="login-layout">
+  <section class="login-brand-panel">
+    <div class="brand-lockup"><div class="brand-symbol">SX</div><div><b>SENTINELX</b><small>UNIFIED CYBER DEFENCE PLATFORM</small></div></div>
+    <div class="login-hero"><div class="eyebrow"><span class="live-dot"></span> PREVENTION · DECEPTION · RESPONSE</div><h1>See threats<br><span>before they</span><br>become incidents.</h1><p>One configurable security platform for organisations of every size and sector.</p>
+      <div class="login-points"><div><i>01</i><span>Protected authentication</span></div><div><i>02</i><span>Isolated deception environment</span></div><div><i>03</i><span>Live security operations</span></div></div>
+    </div>
+    <div class="brand-foot">SENTINELX LAB BUILD <span>·</span> FICTIONAL DEMONSTRATION</div>
+  </section>
+  <section class="login-form-panel"><div class="form-card">
+    <div class="form-kicker">SECURE ACCESS GATEWAY <span class="lock-icon">◈</span></div><h2>Welcome back</h2><p class="subtext">Choose an organisation and sign in to continue.</p>
+    <form id="loginForm">
+      <label for="sector">Organisation sector</label><select id="sector" name="sector">{% for key, item in org_types.items() %}<option value="{{ key }}">{{ item.label }}</option>{% endfor %}</select>
+      <label for="orgName">Organisation name</label><input id="orgName" name="org_name" value="Northstar Bank" maxlength="80" required>
+      <label for="username">Username</label><input id="username" name="username" autocomplete="username" placeholder="Enter your username" required>
+      <label for="password">Password</label><div class="password-wrap"><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required><button type="button" id="togglePassword" class="show-password">SHOW</button></div>
+      <button class="btn btn-primary btn-wide" type="submit">AUTHENTICATE <span>↗</span></button><div id="loginMessage" class="form-message" aria-live="polite"></div>
+    </form>
+    <div class="demo-access"><div class="demo-title">DEMO ACCESS <span>CLASSROOM MODE</span></div><div class="demo-row"><span>Employee</span><code>employee / Employee@2026</code><button data-fill="employee">USE</button></div><div class="demo-row"><span>Deception</span><code>analyst / Sentinel@2026</code><button data-fill="analyst">USE</button></div>{% if not is_vercel %}<div class="demo-row"><span>SOC Admin</span><code>socadmin / Admin@2026</code><button data-fill="socadmin">USE</button></div>{% else %}<div class="demo-row"><span>SOC Admin</span><code>socadmin / configured admin password</code></div>{% endif %}</div>
+    <div class="form-legal"><span>◉ Encrypted demo session</span><span>BUILD 2.0</span></div>
+  </div><p class="login-disclaimer">Demo identities and resources are fictional. Do not enter real organisational credentials.</p></section>
+</main><script src="/login.js"></script></body></html>
